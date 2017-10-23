@@ -82,24 +82,24 @@
               setTimeout(() => {
                 expect(nav.getAttribute('overflow')).to.be.equal('end');
                 done();
-              }, 10);
+              }, 100);
             });
 
             it(`when orientation=${orientation} should have overflow="start end" if scroll is at the middle`, done => {
-              const listener = nav._scrollerElement.addEventListener('scroll', () => {
+              setTimeout(() => {
                 expect(nav.getAttribute('overflow')).to.be.equal('start end');
-                nav._scrollerElement.removeEventListener('scroll', listener);
                 done();
-              });
+              }, 100);
+
               nav._scroll(2);
             });
 
             it(`when orientation=${orientation} should have overflow="start" if scroll is at the end`, done => {
-              const listener = nav._scrollerElement.addEventListener('scroll', () => {
+              setTimeout(() => {
                 expect(nav.getAttribute('overflow')).to.be.equal('start');
-                nav._scrollerElement.removeEventListener('scroll', listener);
                 done();
-              });
+              }, 100);
+
               nav._scroll(400);
             });
           });
